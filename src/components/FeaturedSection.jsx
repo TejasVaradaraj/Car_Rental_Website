@@ -1,33 +1,33 @@
 import React from 'react'
-import Title from './Title'
-import { dummyCarDate } from '../assets/assets.js'
-import CarCard from './CarCard'
 import { useNavigate } from 'react-router-dom'
+import { dummyCarData } from '../assets/assets.js'
+import CarCard from './CarCard'
 
 const FeaturedSection = () => {
-
-const navigate = useNavigate()
+  const navigate = useNavigate()
 
   return (
-    <div className='flex flex-col items-center py-24 px-6 md:px-16
-    lg:px-24 xl:px-32'>
-        <div>
-             <Title  title='Featured Cars' subTitle='Explore our Selection of premium vehicles available for your next adventure' />
-        </div>
-
-        <div className= 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-18'>
-            dummyCarData.slice(0,6).map((car)=> (
-                <div key={car._id}>
-                    <CarCard car={car}/>
-                </div>
-            ))
-        </div>
-
-        <button onClick={()=> {navigate('/cars'); scrollTo(0,0)}} className= 'flex items-center justify-center gap-2 px-6 py-2 border border-borderColor hover:bg-gray-50 rounded-md mt-18 cursor-pointer'>
-            Explore all Cars <img src={assets.arrow_icon} alt="arrow" />
+    <section className="px-6 md:px-16 lg:px-24 xl:px-32 py-12">
+      {/* header with button */}
+      <div className="flex items-center justify-between">
+        <h2 className="text-xl sm:text-2xl font-semibold text-gray-800">Featured cars</h2>
+        <button
+          onClick={() => navigate('/cars')}
+          className="border border-borderColor px-4 sm:px-5 py-2 rounded-full text-gray-700 hover:bg-light transition-colors"
+          aria-label="Explore cars"
+        >
+          Explore cars
         </button>
-        
-    </div>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+        {dummyCarData.slice(0, 6).map((car) => (
+          <div key={car._id}>
+            <CarCard car={car} />
+          </div>
+        ))}
+      </div>
+    </section>
   )
 }
 
