@@ -10,6 +10,7 @@ import Dashboard from './pages/owner/Dashboard'
 import AddCar from './pages/owner/Add_Car'
 import ManageCars from './pages/owner/Manage_Cars'
 import ManageBookings from './pages/owner/Manage_Bookings'
+import Login from './components/Login'
 
 const App = () => {
 
@@ -17,6 +18,7 @@ const App = () => {
   const isOwnerPath = useLocation().pathname.startsWith('/owner')
   return (
     <>
+      {showLogin && <Login setShowLogin={setShowLogin}/>}
       {!isOwnerPath && <Navigation_bar setShowLogin={setShowLogin}/>}
 
       <Routes>
