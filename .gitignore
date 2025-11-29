@@ -1,0 +1,6 @@
+# filepath: .gitignore
+node_modules/
+client/node_modules/
+backend/node_modules/
+.env
+dist/
