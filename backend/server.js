@@ -4,6 +4,7 @@ import cors from "cors";
 import connectDB from "./Config/db.js";
 import userRoutes from "./routes/userRoutes.js";
 import ownerRouter from "./routes/ownerRoutes.js";
+import bookingRouter from "./routes/bookingRoutes.js";
 
 
 // Initialize Express App
@@ -20,6 +21,7 @@ app.use(express.json())
 app.get('/', (req, res)=> res.send("Server is running"))
 app.use('/api/user', userRoutes)
 app.use('/api/owner', ownerRouter)
+app.use('api/booking', bookingRouter)
 
 const start = async () => {
   try {
